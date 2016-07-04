@@ -1,5 +1,7 @@
 package ch.lloreggia.dingleberry.alarm;
 
+import ch.lloreggia.dingleberry.infrastructure.Event;
+
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.time.Period;
@@ -10,6 +12,7 @@ import java.util.*;
 public class Alarm {
     private AlarmTime _alarmTime;
     private DayOfWeek[] _days;
+    private Event<Alarm> _executed;
     private String _id;
     private boolean _isEnabled;
     private String _name;
@@ -22,6 +25,8 @@ public class Alarm {
             _id = id;
         }
 
+        _executed = new Event<>();
+
         _name = name;
         _alarmTime = alarmTime;
         _days = days;
@@ -33,8 +38,8 @@ public class Alarm {
         return _alarmTime;
     }
 
-    public void setAlarmTime(AlarmTime _alarmTime) {
-        _alarmTime = _alarmTime;
+    public void setAlarmTime(AlarmTime alarmTime) {
+        _alarmTime = alarmTime;
         updateTimer();
     }
 
@@ -42,8 +47,8 @@ public class Alarm {
         return _days;
     }
 
-    public void setDays(DayOfWeek[] _days) {
-        _days = _days;
+    public void setDays(DayOfWeek[] days) {
+        _days = days;
     }
 
     public String getId() {
@@ -62,8 +67,12 @@ public class Alarm {
         return _isEnabled;
     }
 
-    public void setIsEnabled(boolean _isEnabled) {
-        _isEnabled = _isEnabled;
+    public Event<Alarm> onExecuted() {
+        return _executed;
+    }
+
+    public void setIsEnabled(boolean isEnabled) {
+        _isEnabled = isEnabled;
         updateTimer();
     }
 
@@ -71,8 +80,7 @@ public class Alarm {
         DayOfWeek today = LocalDateTime.now().getDayOfWeek();
 
         if (_days != null && Arrays.asList(_days).contains(today)) {
-            // TODO
-            System.out.println("alarm!");
+            _executed.execute(this);
         }
     }
 

@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
 Class-Path: pi4j-core-1.0.jar
-Main-Class: ch.lloreggia.dingleberry.Main
+Main-Class: ch.lloreggia.dingleberry.Program
 

@@ -15,6 +15,7 @@ public class AlarmClock {
     }
 
     public void addAlarm(Alarm alarm) {
+        alarm.onExecuted().addHandler(a -> onAlarmExecuted(a));
         _alarms.add(alarm);
     }
 
@@ -32,6 +33,10 @@ public class AlarmClock {
     }
 
     public void setState() {
+
+    }
+
+    private void onAlarmExecuted(Alarm alarm) {
 
     }
 }

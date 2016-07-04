@@ -11,6 +11,11 @@ public class AlarmTime {
         _second = second;
     }
 
+    @Override
+    public AlarmTime clone() {
+        return new AlarmTime(_hour, _minute, _second);
+    }
+
     public int getHour() {
         return _hour;
     }
