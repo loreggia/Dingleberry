@@ -8,12 +8,12 @@ import java.time.temporal.ChronoUnit;
 import java.util.*;
 
 public class Alarm {
-    private Timer _timer;
-    private String _name;
-    private DayOfWeek[] _days;
-    private boolean _isEnabled;
     private AlarmTime _alarmTime;
+    private DayOfWeek[] _days;
     private String _id;
+    private boolean _isEnabled;
+    private String _name;
+    private Timer _timer;
 
     public Alarm(String id, String name, AlarmTime alarmTime, DayOfWeek[] days, boolean isEnabled) {
         if (id == null) {
@@ -29,8 +29,13 @@ public class Alarm {
         _timer = new Timer();
     }
 
-    public String getId() {
-        return _id;
+    public AlarmTime getAlarmTime() {
+        return _alarmTime;
+    }
+
+    public void setAlarmTime(AlarmTime _alarmTime) {
+        _alarmTime = _alarmTime;
+        updateTimer();
     }
 
     public DayOfWeek[] getDays() {
@@ -39,6 +44,10 @@ public class Alarm {
 
     public void setDays(DayOfWeek[] _days) {
         _days = _days;
+    }
+
+    public String getId() {
+        return _id;
     }
 
     public String getName() {
@@ -58,13 +67,13 @@ public class Alarm {
         updateTimer();
     }
 
-    public AlarmTime getAlarmTime() {
-        return _alarmTime;
-    }
+    private void executeAlarm() {
+        DayOfWeek today = LocalDateTime.now().getDayOfWeek();
 
-    public void setAlarmTime(AlarmTime _alarmTime) {
-        _alarmTime = _alarmTime;
-        updateTimer();
+        if (_days != null && Arrays.asList(_days).contains(today)) {
+            // TODO
+            System.out.println("alarm!");
+        }
     }
 
     private void updateTimer() {
@@ -97,15 +106,6 @@ public class Alarm {
                     executeAlarm();
                 }
             }, startDate, Period.ofDays(1).get(ChronoUnit.MILLIS));
-        }
-    }
-
-    private void executeAlarm() {
-        DayOfWeek today = LocalDateTime.now().getDayOfWeek();
-
-        if (_days != null && Arrays.asList(_days).contains(today)) {
-            // TODO
-            System.out.println("alarm!");
         }
     }
 }

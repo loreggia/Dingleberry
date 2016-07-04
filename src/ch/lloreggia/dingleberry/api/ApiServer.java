@@ -16,6 +16,10 @@ public class ApiServer {
         _server.setExecutor(null);
     }
 
+    public void start() {
+        _server.start();
+    }
+
     private void handleHttpExchange(HttpExchange httpExchange) {
         // TODO
         try {
@@ -28,9 +32,5 @@ public class ApiServer {
         } catch (IOException iex) {
             iex.printStackTrace();
         }
-    }
-
-    public void start() {
-        _server.start();
     }
 }

@@ -2,6 +2,7 @@ package ch.lloreggia.dingleberry;
 
 import ch.lloreggia.dingleberry.alarm.AlarmClock;
 import ch.lloreggia.dingleberry.api.ApiServer;
+import ch.lloreggia.dingleberry.io.sensor.GpioSensor;
 
 import java.io.IOException;
 
@@ -10,7 +11,9 @@ public class Main {
         try {
             Configuration configuration = new Configuration();
 
+            GpioSensor sensor = new GpioSensor(configuration.getGpioPin());
             AlarmClock alarmClock = new AlarmClock();
+            sensor.addSensorStateHandler(state -> alarmClock.setSensorState(state));
 
             ApiServer apiServer = new ApiServer(configuration.getServerPort());
             apiServer.start();
