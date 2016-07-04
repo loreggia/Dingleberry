@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8feb072-c049-4016-a5dc-358e5ba4e257" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_pi4j_pi4j_core_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_pi4j_pi4j_core_1_0.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Dingleberry.iws" />
@@ -525,7 +524,14 @@
       <option name="project" value="LOCAL" />
       <updated>1467583717965</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="library set to latest">
+      <created>1467612138843</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1467612138844</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -573,7 +579,8 @@
     <MESSAGE value="initial add" />
     <MESSAGE value="deleted unnecessary file" />
     <MESSAGE value="added io/server classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="added io/server classes" />
+    <MESSAGE value="library set to latest" />
+    <option name="LAST_COMMIT_MESSAGE" value="library set to latest" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -643,6 +650,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
           <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -774,6 +782,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
           <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
